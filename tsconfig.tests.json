@@ -1,0 +1,6 @@
+{
+	"include": ["src/**/*.stories.tsx", "src/**/*.@(test|spec).@(ts|tsx)", "util/**/*.@(ts|tsx)"],
+	"compilerOptions": {
+		"rootDir": "./src"
+	}
+}

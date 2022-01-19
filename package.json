@@ -1,0 +1,95 @@
+{
+  "name": "app-to-learn",
+  "author": "CristianG540",
+  "version": "0.1.0",
+  "license": "UNLICENSED",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "build:prod": "NODE_ENV=production tsdx build",
+    "test": "tsdx test",
+    "test:ci": "cross-env CI=true tsdx test --coverage",
+    "test:watch": "tsdx test --watch",
+    "lint": "eslint \"src/**/*.{js,ts,tsx}\"",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "release": "np"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint",
+      "pre-push": "tsdx test"
+    }
+  },
+  "module": "dist/app-to-learn-1.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/app-to-learn-1.cjs.production.min.js",
+      "limit": "100 KB"
+    },
+    {
+      "path": "dist/app-to-learn-1.esm.js",
+      "limit": "100 KB"
+    }
+  ],
+  "peerDependencies": {
+    "react": ">=16"
+  },
+  "devDependencies": {
+    "@apollo/client": "^3.5.7",
+    "@babel/core": "^7.14.8",
+    "@size-limit/preset-small-lib": "^5.0.2",
+    "@storybook/addon-actions": "^6.3.6",
+    "@storybook/addon-essentials": "^6.3.6",
+    "@storybook/addon-info": "^5.3.21",
+    "@storybook/addon-links": "^6.3.6",
+    "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/addons": "^6.3.6",
+    "@storybook/react": "^6.3.6",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.0.0",
+    "@testing-library/react-hooks": "^7.0.1",
+    "@testing-library/user-event": "^13.2.1",
+    "@types/jest": "^26.0.24",
+    "@types/node": "^16.4.5",
+    "@types/react": "^17.0.15",
+    "@types/react-dom": "^17.0.9",
+    "@types/testing-library__jest-dom": "^5.14.1",
+    "@typescript-eslint/eslint-plugin": "^4.28.5",
+    "@typescript-eslint/parser": "^4.28.5",
+    "@weiran.zsd/tsdx": "^0.16.2",
+    "autoprefixer": "^10.3.1",
+    "babel-loader": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "cssnano": "^5.0.7",
+    "eslint": "^7.31.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-plugin-jest-dom": "^3.9.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-testing-library": "^4.10.1",
+    "graphql": "^16.2.0",
+    "husky": "^7.0.1",
+    "np": "^7.5.0",
+    "postcss": "^8.3.6",
+    "prettier": "2.3.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-is": "^17.0.2",
+    "rollup-plugin-postcss": "^4.0.0",
+    "size-limit": "^5.0.2",
+    "tailwindcss": "^2.2.7",
+    "tslib": "^2.3.0",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {}
+}
