@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react';
 import { Home } from './Home';
 
 const meta: Meta = {
-  title: 'Welcome',
+  title: 'Pages/Home',
   component: Home,
 };
 

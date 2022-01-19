@@ -1,15 +1,21 @@
 import React, { FC } from 'react';
+import { ApolloClient, ApolloProvider, HttpLink, InMemoryCache } from '@apollo/client';
+// Components
+import { LearningGraphQLContent } from './containers/LearningGraphQLContent';
+
+const client = new ApolloClient({
+  cache: new InMemoryCache(),
+  link: new HttpLink({
+    uri: 'http://localhost:4000'
+  })
+});
 
 export const LearningGraphQL: FC = () => {
   return (
-    <div>
-      <div id="test-div">{'laika come graphQL 🐕🌌🚀'}</div>
-      <button
-        className="w-1/2 flex items-center justify-center bg-green-300 text-black border border-black ring-4 ring-indigo-300 text-2xl"
-        type="button"
-      >
-        Hello GraphQL 🐩
-      </button>
-    </div>
+    <>
+      <ApolloProvider client={client}>
+        <LearningGraphQLContent />
+      </ApolloProvider>
+    </>
   );
 };
