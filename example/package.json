@@ -19,6 +19,5 @@
     "typescript": "^3.4.5"
   },
   "dependencies": {
-    "inmo-tsdx-demo-lib-1": "^0.1.5"
   }
 }

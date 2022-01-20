@@ -4,7 +4,7 @@
   "exclude": ["src/**/*.stories.tsx", "src/**/*.data.ts", "src/**/*.mocks.ts", "src/**/*.@(test|spec).@(ts|tsx)"],
   "compilerOptions": {
     "module": "esnext",
-    "lib": ["dom", "esnext"],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "importHelpers": true,
     // output .d.ts declaration files for consumers
     "declaration": true,

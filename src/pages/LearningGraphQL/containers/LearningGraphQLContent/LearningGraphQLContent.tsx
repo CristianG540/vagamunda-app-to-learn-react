@@ -1,23 +1,11 @@
 import React, { FC } from 'react';
-import { gql, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 
 // Components
 import { ListaPersonas } from '../../components/ListaPersonas';
-
-const ALL_PERSONS = gql`
-  query {
-    cantidadPersonas
-    todasLasPersonas(telefono: SI) {
-      nombre
-      telefono
-      direccion {
-        calle
-        ciudad
-      }
-      direccionCompleta
-    }
-  }
-`;
+import { FormPersonas } from '../../components/FormPersonas';
+// Querys
+import { ALL_PERSONS } from '../../graphql/querys';
 
 export const LearningGraphQLContent: FC = () => {
   const { data, error, loading } = useQuery(ALL_PERSONS);
@@ -35,6 +23,8 @@ export const LearningGraphQLContent: FC = () => {
         <div>
           <p>Hello GraphQL 🐩</p>
           <ListaPersonas personas={data.todasLasPersonas}/>
+          <hr />
+          <FormPersonas />
         </div>
       )}
     </div>

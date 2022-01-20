@@ -1,21 +1,20 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import base from 'paths.macro';
-
-// Components
-import { LearningGraphQL } from './LearningGraphQL';
+// Componets
+import { FormPersonas } from './FormPersonas';
 // Utils
-import { generateStoryTitle } from '../../utils/storyTitle';
+import { generateStoryTitle } from '../../../../utils/storyTitle';
 
-const title = 'LearningGraphQL';
+const title = 'FormPersonas';
 const meta: Meta = {
   title: generateStoryTitle(base, title),
-  component: LearningGraphQL,
+  component: FormPersonas,
 };
 
 export default meta;
 
-const Template: Story = args => <LearningGraphQL {...args} />;
+const Template: Story = args => <FormPersonas {...args} />;
 
 // By passing using the Args format for exported stories, you can control the props for a component for reuse in a test
 // https://storybook.js.org/docs/react/workflows/unit-testing

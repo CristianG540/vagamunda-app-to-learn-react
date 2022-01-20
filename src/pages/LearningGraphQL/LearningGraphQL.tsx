@@ -4,6 +4,7 @@ import { ApolloClient, ApolloProvider, HttpLink, InMemoryCache } from '@apollo/c
 import { LearningGraphQLContent } from './containers/LearningGraphQLContent';
 
 const client = new ApolloClient({
+  connectToDevTools: true,
   cache: new InMemoryCache(),
   link: new HttpLink({
     uri: 'http://localhost:4000'
