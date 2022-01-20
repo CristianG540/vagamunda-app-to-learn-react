@@ -1,14 +1,12 @@
 import React, { FC } from 'react';
-import { useQuery } from '@apollo/client';
-
 // Components
 import { ListaPersonas } from '../../components/ListaPersonas';
 import { FormPersonas } from '../../components/FormPersonas';
-// Querys
-import { ALL_PERSONS } from '../../graphql/querys';
+// Hooks
+import { useTraerPersonas } from '../../hooks/personas.hook';
 
 export const LearningGraphQLContent: FC = () => {
-  const { data, error, loading } = useQuery(ALL_PERSONS);
+  const { data, error, loading } = useTraerPersonas();
 
   console.log('🚀 ~ file: LearningGraphQLContent.tsx ~ line 21 ~ result', data);
 
@@ -22,7 +20,7 @@ export const LearningGraphQLContent: FC = () => {
       {!loading && (
         <div>
           <p>Hello GraphQL 🐩</p>
-          <ListaPersonas personas={data.todasLasPersonas}/>
+          <ListaPersonas personas={data?.todasLasPersonas}/>
           <hr />
           <FormPersonas />
         </div>
