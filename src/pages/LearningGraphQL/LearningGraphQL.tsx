@@ -1,7 +1,14 @@
 import React, { FC } from 'react';
+import { Provider } from 'react-redux';
 import { ApolloClient, ApolloProvider, HttpLink, InMemoryCache } from '@apollo/client';
 // Components
 import { LearningGraphQLContent } from './containers/LearningGraphQLContent';
+// Store
+/**
+ * Importo el store de redux, este se encarga de manejar el estado
+ * global de la aplicación
+ */
+ import { store } from './redux/configureStore';
 
 const client = new ApolloClient({
   connectToDevTools: true,
@@ -14,9 +21,11 @@ const client = new ApolloClient({
 export const LearningGraphQL: FC = () => {
   return (
     <>
-      <ApolloProvider client={client}>
-        <LearningGraphQLContent />
-      </ApolloProvider>
+      <Provider store={store}>
+        <ApolloProvider client={client}>
+          <LearningGraphQLContent />
+        </ApolloProvider>
+      </Provider>
     </>
   );
 };

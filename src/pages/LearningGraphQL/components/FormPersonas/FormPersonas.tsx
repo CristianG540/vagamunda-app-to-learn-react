@@ -1,13 +1,22 @@
 import React, { FC, FormEvent } from 'react';
 import { useMutation } from '@apollo/client';
+// Actions
+import { notificationActions } from '../../redux/features/notification/notification.slice';
 // Querys
 import { ALL_PERSONS } from '../../graphql/querys';
 // Mutations
 import { AGREGAR_PERSONA } from '../../graphql/mutations';
+// Hooks
+import { useAppDispatch } from '../../hooks/reduxToolkitTypedHooks';
 
 export const FormPersonas: FC = function () {
+  const dispatch = useAppDispatch();
   const [agregarPersona, { loading, error }] = useMutation(AGREGAR_PERSONA, {
-    refetchQueries: [{ query: ALL_PERSONS }]
+    refetchQueries: [{ query: ALL_PERSONS }],
+    onError: (error) => {
+      dispatch(notificationActions.setError(error.graphQLErrors[0].message));
+      // TODO: Crear una accion que limpie el mensaje del notifier, despues llamar esa accion en un setTimeOut
+    }
   });
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
